@@ -7,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div align="center">
-	<h1>여기는 처음오는 페이지</h1>
-	<h3><a href="jsp/member/login.jsp">로그인</a></h3>
-	<h3><a href="jsp/member/member.jsp">회원가입</a></h3>
+	<jsp:include page="jsp/common/menu.jsp"></jsp:include>
+	<div align="center">
+	<h1>환영합니다. 우리집에 온 것을!</h1>
 </div>
 </body>
 </html>
