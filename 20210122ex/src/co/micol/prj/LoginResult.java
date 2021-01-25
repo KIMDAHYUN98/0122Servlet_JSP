@@ -26,6 +26,7 @@ public class LoginResult extends HttpServlet {
 		//화면에 뿌려주기 위해 사전에 미리 비교를 해보자
 		String message = null;
 		
+		
 		if(id.equals("hong") && pw.equals("1234")) {
 			message  = "님 환영합니다.";
 		} else {
