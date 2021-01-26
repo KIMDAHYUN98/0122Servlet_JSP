@@ -18,6 +18,7 @@ public class BoardsDAO extends DAO{
 	private final String BOARDSELECT = "SELECT * FROM BOARDS WHERE BOARD_NO = ?";
 	private final String BOARDINSERT = "INSERT INTO BOARDS VALUES(?, ?, ?, ?, ?)";
 	private final String BOARDDELETE = "DELETE FROM BOARDS WHERE BOARD_NO = ?";
+	private final String BOARDUPDATE = "UPDATE BOARDS SET TITLE=?, CONTENT=?" +" WHERE BOARD_NO = ?";
 	
 	public ArrayList<BoardVO> selectList() {
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
@@ -78,7 +79,9 @@ public class BoardsDAO extends DAO{
 			psmt.setString(3, vo.getContent());
 			psmt.setString(4, vo.getWriter());
 			psmt.setDate(5, vo.getCreationDate());
+			
 			n= psmt.executeUpdate();
+		
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -91,6 +94,19 @@ public class BoardsDAO extends DAO{
 	public int update(BoardVO vo) {
 		int n = 0;
 		// 여기에 수정작업을 작성
+		try {
+			psmt = conn.prepareStatement(BOARDUPDATE);
+			psmt.setString(1, vo.getTitle());
+			psmt.setString(2, vo.getContent());
+			psmt.setInt(3, vo.getBoardNo());
+			
+			n = psmt.executeUpdate();
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
 		return n;
 	}
 	
