@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.micol.minipro.common.Service;
+import co.micol.minipro.member.service.MemberIdCheck;
+import co.micol.minipro.member.service.MemberJoin;
+import co.micol.minipro.member.service.MemberJoinForm;
 import co.micol.minipro.member.service.login;
 import co.micol.minipro.member.service.loginForm;
 import co.micol.minipro.member.service.logout;
@@ -29,9 +32,11 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainService()); // 메인화면 호출
 		map.put("/loginForm.do", new loginForm()); // 로그인 폼 호출
-		map.put("/login.do", new login());
-		map.put("/logout.do", new logout());
-//		map.put("/boardlist.do", new BoardList()); (요청명, 실행할 command)
+		map.put("/login.do", new login()); // 로그인 처리
+		map.put("/logout.do", new logout()); // 로그아웃 처리
+		map.put("/memberJoinForm.do", new MemberJoinForm()); // (요청명, 실행할 command)
+		map.put("/memberJoin.do", new MemberJoin()); // 회원가입
+		map.put("/idCheck.do", new MemberIdCheck()); // 아이디 중복체크
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
