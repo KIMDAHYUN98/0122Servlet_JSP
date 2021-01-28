@@ -50,6 +50,8 @@ public class FrontController extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
+		
+		// service가 동작 할 때 어떻게 끝낼 것 인지를 설정
 	}
 
 }

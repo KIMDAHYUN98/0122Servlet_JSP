@@ -9,7 +9,7 @@
 <jsp:include page="../common/menu.jsp" />
 <body>
 <div align="center">
-	<h3>${vo.mId } 님 존재하지 않거나, 패스워드가 틀렸습니다.</h3>
+	<h3>${param.mId } 님 존재하지 않거나, 패스워드가 틀렸습니다.</h3>
 </div>
 </body>
 </html>
